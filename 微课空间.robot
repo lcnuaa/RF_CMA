@@ -63,6 +63,8 @@ ${服务器地址}          http://172.21.116.201
     sleep    1
     click element    xpath=.//*[@id="question_itemlist_header"]/div[2]/div[1]/p    #新建试题
     sleep    5
-    ${ID}    execute javascript    return document.getElementsByClassName('item_subject')[0].getElementsByClassName('container edui-default')[0].id    #$(".item_subject:eq(0)").find('.container.edui-default:eq(0)').attr('id')
+    Comment    ${ID}    execute javascript    return document.getElementsByClassName('item_subject')[0].getElementsByClassName('container edui-default')[0].id
     comment    execute javascript    document.getElementById('${第一道题第一个编辑框ID}')
-    input text    xpath=.//*[@id="${ID}"]    测试什么试题
+    select frame    xpath=.//*[@id="ueditor_0"]
+    input text    xpath=./html/body    测试什么试题
+    choose file    xpath=.//*[@id="edui_input_j4xjpjru"]    C:\\Users\\Public\\Pictures\\Sample Pictures\\菊花.jpg
