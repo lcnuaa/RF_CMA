@@ -69,3 +69,4 @@ ${服务器地址}          http://172.21.116.201
     #以上为登录账号
 
 上传图片
+    execute javascript    ue=UE.getEditor
