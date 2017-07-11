@@ -34,7 +34,18 @@ ${服务器地址}          http://172.21.116.201
     close all browsers
     [Teardown]    close all browsers
 
-添加测试
+添加测试/删除测试
+    教师用户登录
+    click element    xpath=./html/body/div[1]/div[1]/div/ul[1]/li[2]/a/span
+    assign id to element    xpath=./html/body/div/div[2]/div/div[1]/div/div/div[2]/div[3]/span    添加测试
+    click element    添加测试
+    wait until page contains    新建试题
+    execute javascript    window.document.getElementsByClassName('check_item')[0].click()
+    input text    xpath=./html/body/div/div[2]/div/div[2]/div/div[1]/div/div[2]/div[1]/input    添加测试试题
+    execute javascript    window.document.getElementsByClassName('confirm_btn user_btn_confirm ok')[0].click()    #点击确认按钮
+    execute javascript    window.document.getElementById('yes_flowWnd').click()    #二级弹出框确认
+    #以下是删除测试
+    [Teardown]    close all browsers
 
 布置作业
 
