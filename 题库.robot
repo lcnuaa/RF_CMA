@@ -48,10 +48,13 @@ ${服务器地址}          http://172.21.116.201
     sleep    1
     execute javascript    window.document.getElementsByClassName('layui-layer-btn0')[0].click()    #点击删除确认
     #删除题库
+    mouse over    xpath=./html/body/div/div[2]/div/div/div[1]/div[2]/div/div[1]/ol/span/li/div/div
+    wait until element is visible    xpath=./html/body/div/div[2]/div/div/div[1]/div[2]/div/div[1]/ol/span/li/div/div    1
     click element    xpath=./html/body/div/div[2]/div/div/div[1]/div[2]/div/div[1]/ol/span/li/div/div/div[1]
     execute javascript    window.document.getElementsByClassName('layer-ext-smallWnd')
     sleep    1
     execute javascript    window.document.getElementsByClassName('layui-layer-btn0')[0].click()    #点击删除确认
+    close all browsers
     [Teardown]    #stop remote server    # 每次都关闭java进程，无论成功与否
 
 *** Keywords ***
@@ -64,3 +67,5 @@ ${服务器地址}          http://172.21.116.201
     sleep    1
     click button    xpath=.//*[@id="submit"]
     #以上为登录账号
+
+上传图片
