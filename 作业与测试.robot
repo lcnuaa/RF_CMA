@@ -19,6 +19,18 @@ ${服务器地址}          http://172.21.116.201
     wait until element is visible    第一个微课复选框id
     click element    第一个微课复选框id
     capture page screenshot
+    sleep    1
+    click element    xpath=./html/body/div/div[2]/div/div[2]/div/div[1]/div[2]/div[1]
+    sleep    2
+    click element    xpath=./html/body/div/div[2]/div/div[2]/div/div/table/tr[4]/td[2]/div/div[2]/div/input    #点击上传题目按钮，准备跳转页面
+    wait until page contains    题库    2
+    assign id to element    xpath=./html/body/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/div    全选框
+    click element    全选框
+    execute javascript    window.document.getElementsByClassName('confirm_btn user_btn_confirm ok')[0].click()    #点击确认
+    execute javascript    window.document.getElementById('yes_flowWnd').click()    #弹出菜单点击确认
+    execute javascript    document.getElementsByClassName('user_btn right_top homeworkmaterial_file')
+    choose file    xpath=./html/body/div/div[2]/div/div[2]/div/div/table/tr[5]/td[2]/div/div[1]/input[2]    C:\\Users\\Public\\Pictures\\Sample Pictures\\1.jpg
+    capture page screenshot
     close all browsers
     [Teardown]    close all browsers
 
