@@ -8,7 +8,7 @@ ${服务器地址}          http://172.21.116.201
 *** Test Cases ***
 布置导学
     教师用户登录
-    click element    xpath=./html/body/div[1]/div[1]/div/ul[1]/li[2]/a/span
+    click element    xpath=./html/body/div[1]/div[1]/div/ul[1]/li[2]/a/span    #进入作业与测试
     click element    xpath=./html/body/div[1]/div[2]/div/div[1]/div/div/div[1]/div[3]/span
     input text    xpath=./html/body/div/div[2]/div/div[2]/div/div/table/tr[2]/td[2]/div/textarea    sdfa
     capture page screenshot
@@ -36,7 +36,7 @@ ${服务器地址}          http://172.21.116.201
 
 添加测试/删除测试
     教师用户登录
-    click element    xpath=./html/body/div[1]/div[1]/div/ul[1]/li[2]/a/span
+    click element    xpath=./html/body/div[1]/div[1]/div/ul[1]/li[2]/a/span    #进入作业与测试
     assign id to element    xpath=./html/body/div/div[2]/div/div[1]/div/div/div[2]/div[3]/span    添加测试
     click element    添加测试
     wait until page contains    新建试题
@@ -52,6 +52,25 @@ ${服务器地址}          http://172.21.116.201
     [Teardown]    close all browsers
 
 布置作业
+    教师用户登录
+    click element    xpath=./html/body/div[1]/div[1]/div/ul[1]/li[2]/a/span    #进入作业与测试
+    click element    xpath=./html/body/div/div[2]/div/div[1]/div/div/div[3]/div[3]/span
+    assign id to element    xpath=./html/body/div/div[2]/div/div[2]/div/div/table/tr[1]/td[2]/div/input    zuoyemingcheng
+    input text    xpath=./html/body/div/div[2]/div/div[2]/div/div/table/tr[1]/td[2]/div/input    dsfsadfasfasfsda
+    execute javascript    D:\\python\\Scripts\\Smart_Teacher_Web\\1.js    #目前脚本没错，但不生效
+    capture page screenshot
+    comment    execute javascript    ue.execCommand('undo');
+    comment    execute javascript    ue.setContent('课后作业新');
+    execute javascript    document.getElementsByClassName('user_btn_add_question')[0].click()
+    wait until page contains    题库    2
+    assign id to element    xpath=./html/body/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/div    全选框
+    click element    全选框
+    capture page screenshot
+    execute javascript    window.document.getElementsByClassName('confirm_btn user_btn_confirm ok')[0].click()    #点击确认
+    execute javascript    window.document.getElementById('yes_flowWnd').click()    #弹出菜单点击确认
+    execute javascript    window.document.getElementsByClassName('user_btn_confirm ok')[0].click()
+    close all browsers
+    [Teardown]    close all browsers
 
 *** Keywords ***
 教师用户登录
