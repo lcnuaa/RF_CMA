@@ -45,6 +45,10 @@ ${服务器地址}          http://172.21.116.201
     execute javascript    window.document.getElementsByClassName('confirm_btn user_btn_confirm ok')[0].click()    #点击确认按钮
     execute javascript    window.document.getElementById('yes_flowWnd').click()    #二级弹出框确认
     #以下是删除测试
+    execute javascript    document.getElementsByClassName('el-checkbox__inner')[0].click()    #全选试题列表
+    sleep    1
+    execute javascript    window.document.getElementsByClassName('icon_btn ico_del btn_delete')[0].click()
+    execute javascript    document.getElementsByClassName('layui-layer-btn0')[0].click()
     [Teardown]    close all browsers
 
 布置作业
