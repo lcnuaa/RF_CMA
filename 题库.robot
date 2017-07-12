@@ -54,6 +54,7 @@ ${服务器地址}          http://172.21.116.201
     execute javascript    window.document.getElementsByClassName('layer-ext-smallWnd')
     sleep    1
     execute javascript    window.document.getElementsByClassName('layui-layer-btn0')[0].click()    #点击删除确认
+    sleep    1
     close all browsers
     [Teardown]    #stop remote server    # 每次都关闭java进程，无论成功与否
 
