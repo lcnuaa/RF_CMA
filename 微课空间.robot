@@ -36,6 +36,19 @@ ${服务器地址}          http://172.21.116.201
     close all browsers
     [Teardown]    close all browsers
 
+根据学段/年级/学科选择微课
+    教师用户登录
+    sleep    1
+    click element    xpath=.//*[@id="btn_weike_zone"]/span    #进入我的微课
+    sleep    1
+    click element    xpath=.//*[@id="user_tabs"]/li[2]/span    #选择我的微课
+    click element    xpath=./html/body/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[2]/b    #点击下拉框
+    select from list    xpath=./html/body/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[1]/select    全部    #选择小学
+    click element    xpath=./html/body/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[3]/div/div[1]/div/ul/li[2]
+    capture page screenshot
+    close all browsers
+    [Teardown]    close all browsers
+
 *** Keywords ***
 教师用户登录
     open browser    ${服务器地址}    gc
